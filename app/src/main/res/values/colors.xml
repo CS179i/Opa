@@ -8,6 +8,7 @@
     <!-- App Theme Colors -->
     <color name="accentGreen">#3DDB93</color>
     <color name="colorPrimary">#FF6464</color>
+    <color name="colorPrimaryDark">#E04848</color>
     <color name="colorAccent">#FED725</color>
-    <color name="colorPrimaryDark">#FF863A</color>
+    <color name="accentOrange">#FF863A</color>
 </resources>
