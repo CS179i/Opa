@@ -17,6 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".login_register.LandingPageActivity"/>
+        <activity android:name=".login_register.GuestLoginActivity"/>
+        <activity android:name=".login_register.RegisteredUserLoginActivity"/>
+        <activity android:name=".login_register.OrganizerLoginActivity"/>
     </application>
 
 </manifest>

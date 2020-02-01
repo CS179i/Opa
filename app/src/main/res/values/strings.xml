@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Opa</string>
+    <string name="guest_login_buttom">Guest Login</string>
+    <string name="registered_user_login_button">Registered User Login</string>
+    <string name="organizer_login_button">Organizer Login</string>
 </resources>

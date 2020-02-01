@@ -6,14 +6,18 @@ import android.os.Handler;
 
 import com.example.opa.MainActivity;
 import com.example.opa.R;
+import com.example.opa.login_register.LandingPageActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT = 2500;
-//    private FirebaseAuth mAuth;
-//    private DatabaseReference mUserRef;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mUserRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,18 +26,17 @@ public class SplashActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        //mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-               // FirebaseUser currentUser = mAuth.getCurrentUser();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
                 Intent splashIntent;
-//                if (currentUser == null) {
-//                    splashIntent = new Intent(SplashActivity.this, LoginActivity.class);
-//                } else {
-//                    splashIntent = new Intent(SplashActivity.this, MainActivity.class);
-//                }
-                splashIntent = new Intent(SplashActivity.this, MainActivity.class);
+                if (currentUser == null) {
+                    splashIntent = new Intent(SplashActivity.this, LandingPageActivity.class);
+                } else {
+                    splashIntent = new Intent(SplashActivity.this, MainActivity.class);
+                }
                 startActivity(splashIntent);
                 finish();
             }
