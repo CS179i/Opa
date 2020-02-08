@@ -6,23 +6,24 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.opa.R;
+import com.example.opa.questionnaire.QuestionnaireActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class GuestLoginActivity extends AppCompatActivity {
+public class EventCodeActivity extends AppCompatActivity {
 
-    Button btnNext;
+    Button btnSubmit;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guest_login);
+        setContentView(R.layout.activity_event_code);
 
-        btnNext = findViewById(R.id.btnNext);
-        btnNext.setOnClickListener(new View.OnClickListener() {
+        btnSubmit = findViewById(R.id.btnSubmit);
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GuestLoginActivity.this, EventCodeActivity.class);
+                Intent intent = new Intent(EventCodeActivity.this, QuestionnaireActivity.class);
                 startActivity(intent);
                 finish();
             }

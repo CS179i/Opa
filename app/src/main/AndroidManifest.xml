@@ -21,6 +21,12 @@
         <activity android:name=".login_register.GuestLoginActivity"/>
         <activity android:name=".login_register.RegisteredUserLoginActivity"/>
         <activity android:name=".login_register.OrganizerLoginActivity"/>
+        <activity android:name=".login_register.EventCodeActivity"/>
+        <activity android:name=".questionnaire.QuestionnaireActivity"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

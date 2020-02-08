@@ -3,4 +3,11 @@
     <string name="guest_login_buttom">Guest Login</string>
     <string name="registered_user_login_button">Registered User Login</string>
     <string name="organizer_login_button">Organizer Login</string>
+    <string name="welcome">Welcome!</string>
+    <string name="Name">Name:</string>
+    <string name="username">Enter User Name</string>
+    <string name="event_id_number">Enter Event Id</string>
+    <string name="submit">Submit</string>
+    <string name="next">Next</string>
+    <string name="event_id">Event Id:</string>
 </resources>
