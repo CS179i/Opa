@@ -23,6 +23,7 @@
         <activity android:name=".login_register.OrganizerLoginActivity"/>
         <activity android:name=".login_register.EventCodeActivity"/>
         <activity android:name=".questionnaire.QuestionnaireActivity"/>
+        <activity android:name=".HomeActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
