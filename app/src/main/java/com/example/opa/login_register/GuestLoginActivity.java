@@ -43,16 +43,17 @@ public class GuestLoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (checkValidName()) {
                         makeGuestAccount();
-                    }
-                    else{
-                        new AlertDialog.Builder(context)
-                                .setTitle("Authentication Error")
-                                .setMessage("There is an error authenticating. 1) Make sure your email is formatted properly \n 2) Passwords match \n 3)Password is at least 6 characters.")
-                                .setPositiveButton(android.R.string.ok, null)
-                                .show();
-                    }
                 }
-            });
+                else{
+                    new AlertDialog.Builder(context)
+                        .setTitle("User Name Error")
+                        .setMessage("Make sure your user name is entered. " +
+                                "\n User names can be at least one character in length.")
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show();
+                }
+            }
+        });
     }
 
     private void makeGuestAccount() {
@@ -75,8 +76,9 @@ public class GuestLoginActivity extends AppCompatActivity {
     }
 
     private void writeNewGuestUser(String userId, String name) {
+        //TODO send new guest user data to database
         GuestUser guest = new GuestUser(userId, name);
-        mDatabase.child("guestUsers").child(userId).setValue(guest);
+        //mDatabase.child("guestUsers").child(userId).setValue(guest);
     }
 
 }
