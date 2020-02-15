@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/friend_list"
-        android:title="Item1"/>
+        android:title="@string/friend_list"/>
     <item
-        android:id="@+id/user_settings"
-        android:title="Item2"
+        android:id="@+id/profile_settings"
+        android:title="@string/profile_settings"
         />
     <item
         android:id="@+id/sign_out"
-        android:title="Item3"
+        android:title="@string/sign_out"
         />
 </menu>

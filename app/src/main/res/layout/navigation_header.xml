@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Menu"
-        android:textColor="@color/textBlack"
+        android:textColor="@color/textGrey"
         android:textStyle="bold"
         android:textSize="25sp"
         android:textAlignment="center"

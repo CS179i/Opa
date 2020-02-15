@@ -1,34 +1,32 @@
 package com.example.opa;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.opa.login_register.LandingPageActivity;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     // navigation drawer
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
-    // add class members for expandable list view
-    private List<String> menuItems;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        prepareListData();
-        setListeners();
+        setNavigationViewListener();
 
         drawerLayout = findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(HomeActivity.this, drawerLayout, R.string.open, R.string.close);
@@ -37,18 +35,6 @@ public class HomeActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    private void prepareListData() {
-        menuItems = new ArrayList<>();
-
-        menuItems.add(getString(R.string.friend_list));
-        menuItems.add(getString(R.string.profile_settings));
-        menuItems.add(getString(R.string.sign_out));
-    }
-
-    private void setListeners() {
-
     }
 
     @Override
@@ -61,5 +47,30 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.friend_list:
+                // TODO set intent to new activity
+                break;
+            case R.id.profile_settings:
+                // TODO set intent to new activity
+                break;
+            case R.id.sign_out:
+                FirebaseAuth.getInstance().signOut();
+                Intent signout = new Intent(HomeActivity.this, LandingPageActivity.class);
+                signout.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(signout);
+                break;
+        }
+
+        return  true;
+    }
+
+    private void setNavigationViewListener() {
+        NavigationView navigationView = findViewById(R.id.navigation);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 }
