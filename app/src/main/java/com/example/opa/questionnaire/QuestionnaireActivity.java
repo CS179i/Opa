@@ -7,7 +7,6 @@ import android.widget.Button;
 
 import com.example.opa.HomeActivity;
 import com.example.opa.R;
-import com.example.opa.adapters.QuestionAdapter;
 import com.example.opa.models.Question;
 
 import java.util.List;
@@ -34,6 +33,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         RecyclerView rvQuestions = findViewById(R.id.rv_questions);
         QuestionAdapter adapter = new QuestionAdapter(questions);
         // Todo add items to the recycler view

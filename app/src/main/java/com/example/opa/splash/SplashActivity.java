@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.opa.MainActivity;
+import com.example.opa.HomeActivity;
 import com.example.opa.R;
 import com.example.opa.login_register.LandingPageActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,7 +35,7 @@ public class SplashActivity extends AppCompatActivity {
                 if (currentUser == null) {
                     splashIntent = new Intent(SplashActivity.this, LandingPageActivity.class);
                 } else {
-                    splashIntent = new Intent(SplashActivity.this, MainActivity.class);
+                    splashIntent = new Intent(SplashActivity.this, HomeActivity.class);
                 }
                 startActivity(splashIntent);
                 finish();

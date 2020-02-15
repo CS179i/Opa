@@ -1,4 +1,4 @@
-package com.example.opa.adapters;
+package com.example.opa.questionnaire;
 
 import android.view.View;
 import android.view.ViewGroup;

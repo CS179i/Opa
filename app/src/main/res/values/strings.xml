@@ -12,4 +12,6 @@
     <string name="event_id">Event Id:</string>
     <string name="please_fill_out">Please Answer the Following:</string>
     <string name="enter_response">Enter Response Here</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>
