@@ -37,9 +37,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="56dp"
                 android:gravity="center"
-                android:text="NAME"
+                android:text="John Doe"
                 android:textAlignment="center"
-                android:textColor="@color/textBlack"
+                android:textColor="@color/textGrey"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,15 +56,6 @@
             app:headerLayout="@layout/navigation_header"
             app:menu="@menu/navigation_items">
 
-
-            <ExpandableListView
-                android:id="@+id/expandable_navigation_menu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="65dp"
-                android:background="@android:color/white"
-                android:groupIndicator="@null"
-                app:theme="@style/NavDrawerStyle"/>
         </com.google.android.material.navigation.NavigationView>
 
 

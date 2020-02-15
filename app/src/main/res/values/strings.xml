@@ -14,4 +14,7 @@
     <string name="enter_response">Enter Response Here</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="friend_list">Friend List</string>
+    <string name="profile_settings">Profile Settings</string>
+    <string name="sign_out">Sign Out</string>
 </resources>
