@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.example.opa.HomeActivity;
 import com.example.opa.R;
 import com.example.opa.models.Question;
+import com.example.opa.popups.RegisterUserPopUpActivity;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(QuestionnaireActivity.this, HomeActivity.class);
+                Intent intent = new Intent(QuestionnaireActivity.this, RegisterUserPopUpActivity.class);
                 startActivity(intent);
             }
         });

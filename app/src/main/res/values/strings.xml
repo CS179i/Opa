@@ -17,4 +17,7 @@
     <string name="friend_list">Friend List</string>
     <string name="profile_settings">Profile Settings</string>
     <string name="sign_out">Sign Out</string>
+    <string name="register_account_title">Become a Registered User</string>
+    <string name="register_now">Register</string>
+    <string name="not_now">Not Now</string>
 </resources>
