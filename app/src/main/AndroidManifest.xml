@@ -21,6 +21,7 @@
         <activity android:name=".login_register.RegisteredUserLoginActivity"/>
         <activity android:name=".login_register.OrganizerLoginActivity"/>
         <activity android:name=".login_register.EventCodeActivity"/>
+        <activity android:name=".login_register.RegisterUserActivity"/>
         <activity android:name=".questionnaire.QuestionnaireActivity"/>
         <activity android:name=".popups.RegisterUserPopUpActivity"/>
         <activity android:name=".HomeActivity"/>
