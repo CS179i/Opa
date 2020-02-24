@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import com.example.opa.HomeActivity;
 import com.example.opa.R;
+import com.example.opa.login_register.RegisterUserActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,15 +28,15 @@ public class RegisterUserPopUpActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO set up intent to register new user activity
-                Intent intent = new Intent(RegisterUserPopUpActivity.this, HomeActivity.class);
+                Intent intent = new Intent(RegisterUserPopUpActivity.this, RegisterUserActivity.class);
                 startActivity(intent);
             }
         });
         btnNotNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(RegisterUserPopUpActivity.this, HomeActivity.class);
+                startActivity(intent);
             }
         });
     }

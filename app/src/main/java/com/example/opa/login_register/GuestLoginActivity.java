@@ -9,12 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.opa.R;
-import com.example.opa.models.GuestUser;
+import com.example.opa.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,8 +33,7 @@ public class GuestLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guest_login);
 
-        //mDatabase = FirebaseDatabase.getInstance().getReference();
-
+        mDatabase = FirebaseDatabase.getInstance().getReference("users");
         context = this;
         etName = findViewById(R.id.etName);
         btnNext = findViewById(R.id.btnNext);
@@ -62,7 +62,7 @@ public class GuestLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    writeNewGuestUser(mAuth.getCurrentUser().getUid(), etName.getText().toString());
+                    storeInDatabase(mAuth.getCurrentUser().getUid(), etName.getText().toString());
                     Intent intent = new Intent(GuestLoginActivity.this, EventCodeActivity.class);
                     startActivity(intent);
                     finish();
@@ -71,14 +71,12 @@ public class GuestLoginActivity extends AppCompatActivity {
         });
     }
 
+    private void storeInDatabase(String userId, String username) {
+        User user = new User(userId, username, "guest_user");
+        mDatabase.child(userId).setValue(user);
+    }
+
     private boolean checkValidName() {
         return etName.getText().toString().length() > 0;
     }
-
-    private void writeNewGuestUser(String userId, String name) {
-        //TODO send new guest user data to database
-        GuestUser guest = new GuestUser(userId, name);
-        //mDatabase.child("guestUsers").child(userId).setValue(guest);
-    }
-
 }
