@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.example.opa.friends_list.FriendsListActivity;
 import com.example.opa.login_register.LandingPageActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -53,7 +54,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.friend_list:
-                // TODO set intent to new activity
+                Intent friendList = new Intent(HomeActivity.this, FriendsListActivity.class);
+                startActivity(friendList);
                 break;
             case R.id.profile_settings:
                 // TODO set intent to new activity

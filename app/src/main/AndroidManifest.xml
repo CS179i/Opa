@@ -25,6 +25,7 @@
         <activity android:name=".questionnaire.QuestionnaireActivity"/>
         <activity android:name=".popups.RegisterUserPopUpActivity"/>
         <activity android:name=".HomeActivity"/>
+        <activity android:name=".friends_list.FriendsListActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
