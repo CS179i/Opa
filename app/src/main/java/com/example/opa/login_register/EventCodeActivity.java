@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.opa.MyCallBack;
+import com.example.opa.MyCallBackString;
 import com.example.opa.R;
 import com.example.opa.questionnaire.QuestionnaireActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,8 +48,9 @@ public class EventCodeActivity extends AppCompatActivity {
         });
     }
 
-    private void enterEvent() {
+    private void enterEvent(String title) {
         Intent intent = new Intent(EventCodeActivity.this, QuestionnaireActivity.class);
+        intent.putExtra("questionnaire", title);
         startActivity(intent);
         finish();
     }
@@ -59,7 +61,12 @@ public class EventCodeActivity extends AppCompatActivity {
             public void onCallback(boolean value) {
                 Log.d("TAG", "value");
                 if (value) {
-                    enterEvent();
+                    getQuestionnaire(new MyCallBackString() {
+                        @Override
+                        public void onCallback(String value) {
+                            enterEvent(value);
+                        }
+                    }, searchText);
                 } else {
                     new AlertDialog.Builder(context)
                             .setTitle("Event Code Error")
@@ -71,12 +78,24 @@ public class EventCodeActivity extends AppCompatActivity {
         }, searchText);
     }
 
-    public void readData(final MyCallBack myCallback, final String searchtext) {
-        mDatabase.child("events").child("eventId").addListenerForSingleValueEvent(new ValueEventListener() {
+    private void getQuestionnaire(final MyCallBackString myCallback, String searchtext) {
+        mDatabase.child("events").child(searchtext).child("questionnaire").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue(String.class);
-                myCallback.onCallback(value == searchtext);
+                myCallback.onCallback(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+    }
+
+    private void readData(final MyCallBack myCallback, final String searchtext) {
+        mDatabase.child("events").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChild(searchtext)) myCallback.onCallback(true);
+
             }
 
             @Override
