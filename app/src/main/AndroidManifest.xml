@@ -9,23 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_opa_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.com.example.opa.splash.SplashActivity">
+        <activity android:name="com.example.opa.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.com.example.opa.login_register.LandingPageActivity"/>
-        <activity android:name="com.example.com.example.opa.login_register.GuestLoginActivity"/>
-        <activity android:name="com.example.com.example.opa.login_register.RegisteredUserLoginActivity"/>
-        <activity android:name="com.example.com.example.opa.login_register.OrganizerLoginActivity"/>
-        <activity android:name="com.example.com.example.opa.login_register.EventCodeActivity"/>
-        <activity android:name="com.example.com.example.opa.login_register.RegisterUserActivity"/>
-        <activity android:name="com.example.com.example.opa.questionnaire.QuestionnaireActivity"/>
-        <activity android:name="com.example.com.example.opa.popups.RegisterUserPopUpActivity"/>
-        <activity android:name="com.example.com.example.opa.HomeActivity"/>
-        <activity android:name="com.example.com.example.opa.friends_list.FriendsListActivity"/>
+        <activity android:name="com.example.opa.login_register.LandingPageActivity"/>
+        <activity android:name="com.example.opa.login_register.GuestLoginActivity"/>
+        <activity android:name="com.example.opa.login_register.RegisteredUserLoginActivity"/>
+        <activity android:name="com.example.opa.login_register.OrganizerLoginActivity"/>
+        <activity android:name="com.example.opa.login_register.EventCodeActivity"/>
+        <activity android:name="com.example.opa.login_register.RegisterUserActivity"/>
+        <activity android:name="com.example.opa.questionnaire.QuestionnaireActivity"/>
+        <activity android:name="com.example.opa.popups.RegisterUserPopUpActivity"/>
+        <activity android:name="com.example.opa.HomeActivity"/>
+        <activity android:name="com.example.opa.friends_list.FriendsListActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
