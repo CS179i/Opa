@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -11,12 +12,12 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tvRegUser"
+            android:id="@+id/tvOrgLog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="112dp"
             android:fontFamily="@font/chewy"
-            android:text="Registered User:"
+            android:text="Organizer:"
             android:textColor="@color/textWhite"
             android:textSize="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -26,13 +27,12 @@
             app:layout_constraintVertical_bias="0.110000014" />
 
         <EditText
-            android:id="@+id/etUsername"
-            style="@style/Widget.AppCompat.EditText"
+            android:id="@+id/etOLUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/textWhite"
             android:ems="10"
+            android:backgroundTint="@color/textWhite"
             android:hint="Username"
             android:inputType="textPersonName"
             android:textColor="@color/textWhite"
@@ -40,16 +40,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvRegUser"
+            app:layout_constraintTop_toBottomOf="@+id/tvOrgLog"
             app:layout_constraintVertical_bias="0.16000003" />
 
         <EditText
-            android:id="@+id/etPassword"
+            android:id="@+id/etOLPassword"
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:backgroundTint="@color/textWhite"
             android:ems="10"
+            android:backgroundTint="@color/textWhite"
             android:hint="Password"
             android:inputType="textPassword"
             android:textColor="@color/textWhite"
@@ -57,36 +57,36 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etUsername"
+            app:layout_constraintTop_toBottomOf="@+id/etOLUsername"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/bLogIn"
+            android:id="@+id/bOLLogin"
             android:layout_width="149dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/rounded_green_button"
-            android:text="Log In"
+            android:text="Log in"
             android:textColor="@color/textWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword"
+            app:layout_constraintTop_toBottomOf="@+id/etOLPassword"
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageView2"
             android:layout_width="300dp"
             android:layout_height="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bLogIn"
+            app:layout_constraintTop_toBottomOf="@+id/bOLLogin"
             app:layout_constraintVertical_bias="0.63"
-            app:srcCompat="@color/common_google_signin_btn_text_dark_pressed" />
+            app:srcCompat="@android:drawable/screen_background_light" />
 
         <TextView
-            android:id="@+id/tvNewUser"
+            android:id="@+id/tvNewOrganizer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New User?"
@@ -94,11 +94,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
             app:layout_constraintVertical_bias="0.050000012" />
 
         <Button
-            android:id="@+id/bSignUp"
+            android:id="@+id/bOLSignUp"
             android:layout_width="83dp"
             android:layout_height="38dp"
             android:background="@drawable/rounded_orange_button"
@@ -107,8 +107,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNewUser"
+            app:layout_constraintTop_toBottomOf="@+id/tvNewOrganizer"
             app:layout_constraintVertical_bias="0.01999998" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
