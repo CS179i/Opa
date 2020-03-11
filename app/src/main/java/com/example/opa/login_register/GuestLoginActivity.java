@@ -72,7 +72,7 @@ public class GuestLoginActivity extends AppCompatActivity {
     }
 
     private void storeInDatabase(String userId, String username) {
-        User user = new User(userId, username, "guest_user");
+        User user = new User(username, "guest_user", "", "");
         mDatabase.child(userId).setValue(user);
     }
 

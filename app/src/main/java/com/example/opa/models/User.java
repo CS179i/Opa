@@ -3,13 +3,17 @@ package com.example.opa.models;
 public class User {
 
     String name;
-    String userId;
+    //String userId;
     String userType;
+    String company;
+    String phone;
 
-    public User(String userId, String name, String userType) {
+    public User(String name, String userType, String company, String phone) {
         this.name = name;
-        this.userId = userId;
+        //this.userId = userId;
         this.userType = userType;
+        this.company = company;
+        this.phone = phone;
     }
 
     public String getName() {
@@ -20,11 +24,27 @@ public class User {
         this.name = name;
     }
 
-    public String getUserId() { return  userId; }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public String getCompany() {
+        return company;
     }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String name) {
+        this.phone = phone;
+    }
+
+    //public String getUserId() { return  userId; }
+
+    //public void setUserId(String userId) {
+    //    this.userId = userId;
+    //}
 
     public String getUserType() {
         return userType;

@@ -22,6 +22,7 @@
         <activity android:name="com.example.opa.login_register.OrganizerLoginActivity"/>
         <activity android:name="com.example.opa.login_register.EventCodeActivity"/>
         <activity android:name="com.example.opa.login_register.RegisterUserActivity"/>
+        <activity android:name="com.example.opa.login_register.OrganizerRegisterActivity"/>
         <activity android:name="com.example.opa.questionnaire.QuestionnaireActivity"/>
         <activity android:name="com.example.opa.popups.RegisterUserPopUpActivity"/>
         <activity android:name="com.example.opa.HomeActivity"/>
