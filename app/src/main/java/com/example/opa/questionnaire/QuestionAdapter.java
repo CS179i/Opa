@@ -1,5 +1,7 @@
 package com.example.opa.questionnaire;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -16,38 +18,46 @@ import androidx.recyclerview.widget.RecyclerView;
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
 
     public List<Question> questions;
+    private Context context;
 
-    public QuestionAdapter(List<Question> questions) {
+
+    public QuestionAdapter(List<Question> questions, Context context) {
         this.questions = questions;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public QuestionAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.item_question, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull QuestionAdapter.ViewHolder holder, int position) {
-
+        final Question question = questions.get(position);
+        holder.tvPosition.setText(String.valueOf(position + 1));
+        holder.tvQuestion.setText(question.getQuestion());
+        question.setResponse(holder.etResponse.getText().toString());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return questions.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView position;
-        private TextView question;
-        private EditText response;
+        private TextView tvPosition;
+        private TextView tvQuestion;
+        private EditText etResponse;
 
         public ViewHolder(View itemView){
             super(itemView);
 
-            position = itemView.findViewById(R.id.tv_position);
-            question = itemView.findViewById(R.id.tv_question);
-            response = itemView.findViewById(R.id.et_response);
+            tvPosition = itemView.findViewById(R.id.tv_position);
+            tvQuestion = itemView.findViewById(R.id.tv_question);
+            etResponse = itemView.findViewById(R.id.et_response);
         }
     }
 }

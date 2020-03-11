@@ -29,7 +29,6 @@ public class EventCodeActivity extends AppCompatActivity {
     private Button btnSubmit;
     private EditText etEventId;
     private Context context;
-    private boolean found = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,7 +94,6 @@ public class EventCodeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(searchtext)) myCallback.onCallback(true);
-
             }
 
             @Override

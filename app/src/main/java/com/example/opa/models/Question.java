@@ -4,20 +4,9 @@ public class Question {
 
     private String question;
     private String response;
-    private int position;
 
-    public Question(String question, String response, int position) {
+    public Question(String question, String response) {
         this.question = question;
-        this.response = response;
-        this.position = position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
-    public int getPosition() {
-        return position;
     }
 
     public void setQuestion(String question) {
