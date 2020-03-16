@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.opa">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -8,6 +9,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_opa_logo_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.example.opa.splash.SplashActivity">
             <intent-filter>
@@ -27,6 +29,8 @@
         <activity android:name="com.example.opa.popups.RegisterUserPopUpActivity"/>
         <activity android:name="com.example.opa.HomeActivity"/>
         <activity android:name="com.example.opa.friends_list.FriendsListActivity"/>
+        <activity android:name="com.example.opa.results.OrganizerResultsActivity"/>
+        <activity android:name="com.example.opa.results.UserResultsActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

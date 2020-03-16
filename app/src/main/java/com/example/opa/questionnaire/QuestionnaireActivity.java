@@ -10,6 +10,7 @@ import com.example.opa.R;
 import com.example.opa.models.Question;
 import com.example.opa.models.Response;
 import com.example.opa.popups.RegisterUserPopUpActivity;
+import com.example.opa.results.UserResultsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -61,7 +62,8 @@ public class QuestionnaireActivity extends AppCompatActivity {
                 }
                 mDatabase.child("events").child(eventId).child("users").child(mAuth.getUid()).setValue(results);
                 Intent intent = new Intent(QuestionnaireActivity.this,
-                        RegisterUserPopUpActivity.class);
+                        UserResultsActivity.class);
+                intent.putExtra("EVENT_ID", eventId);
                 startActivity(intent);
             }
         });
