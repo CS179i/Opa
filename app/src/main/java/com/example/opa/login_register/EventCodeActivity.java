@@ -47,9 +47,10 @@ public class EventCodeActivity extends AppCompatActivity {
         });
     }
 
-    private void enterEvent(String title) {
+    private void enterEvent(String title, String eventId) {
         Intent intent = new Intent(EventCodeActivity.this, QuestionnaireActivity.class);
         intent.putExtra("questionnaire", title);
+        intent.putExtra("eventId", eventId);
         startActivity(intent);
         finish();
     }
@@ -63,7 +64,7 @@ public class EventCodeActivity extends AppCompatActivity {
                     getQuestionnaire(new MyCallBackString() {
                         @Override
                         public void onCallback(String value) {
-                            enterEvent(value);
+                            enterEvent(value, searchText);
                         }
                     }, searchText);
                 } else {

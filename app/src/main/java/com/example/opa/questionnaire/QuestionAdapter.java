@@ -4,24 +4,25 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.opa.R;
 import com.example.opa.models.Question;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
 
-    public List<Question> questions;
+    public ArrayList<Question> questions;
     private Context context;
 
 
-    public QuestionAdapter(List<Question> questions, Context context) {
+    public QuestionAdapter(ArrayList<Question> questions, Context context) {
         this.questions = questions;
         this.context = context;
     }
@@ -38,9 +39,13 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     public void onBindViewHolder(@NonNull QuestionAdapter.ViewHolder holder, int position) {
         final Question question = questions.get(position);
         String pos = String.valueOf(position + 1);
-        holder.tvPosition.setText( pos + ". ");
+        holder.tvPosition.setText(pos + ". ");
         holder.tvQuestion.setText(question.getQuestion());
-        question.setResponse(holder.etResponse.getText().toString());
+
+
+        for (int i = 0; i < holder.radioGroup .getChildCount(); i++) {
+            ((RadioButton) holder.radioGroup.getChildAt(i)).setText(question.getResponseList().get(i).getResponse());
+        }
     }
 
     @Override
@@ -51,14 +56,16 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView tvPosition;
         private TextView tvQuestion;
-        private EditText etResponse;
+        private RadioGroup radioGroup;
 
         public ViewHolder(View itemView){
             super(itemView);
 
             tvPosition = itemView.findViewById(R.id.tv_position);
             tvQuestion = itemView.findViewById(R.id.tv_question);
-            etResponse = itemView.findViewById(R.id.et_response);
+            radioGroup = itemView.findViewById(R.id.radio_group);
+
+            int radioId = radioGroup.getCheckedRadioButtonId();
         }
     }
 }

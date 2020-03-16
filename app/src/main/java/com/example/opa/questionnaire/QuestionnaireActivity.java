@@ -5,11 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.opa.R;
 import com.example.opa.models.Question;
+import com.example.opa.models.Response;
 import com.example.opa.popups.RegisterUserPopUpActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,10 +27,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class QuestionnaireActivity extends AppCompatActivity {
 
-    ArrayList<Question> questions = new ArrayList<>();
-    Button btnSubmit;
-    String questionnaireTitle;
-    Context context;
+    private ArrayList<Question> questions = new ArrayList<>();
+    private Button btnSubmit;
+    private String questionnaireTitle;
+    private String eventId;
+    private Context context;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private DatabaseReference mDatabase;
@@ -44,9 +44,10 @@ public class QuestionnaireActivity extends AppCompatActivity {
         context = this;
         mDatabase = FirebaseDatabase.getInstance().getReference();
         questionnaireTitle = getIntent().getStringExtra("questionnaire");
+        eventId = getIntent().getStringExtra("eventId");
 
         final RecyclerView rvQuestions = findViewById(R.id.rv_questions);
-        QuestionAdapter adapter = new QuestionAdapter(questions, this);
+        QuestionAdapter adapter = new QuestionAdapter(questions,this);
         populateQuestions(rvQuestions, adapter, questionnaireTitle);
 
 
@@ -55,21 +56,13 @@ public class QuestionnaireActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ArrayList<String> results = new ArrayList<>();
-                boolean flag = false;
                 for (Question q : questions) {
-                    if (q.getResponse() == "") {
-                        Toast.makeText(context, "Error: Answer all questions!", Toast.LENGTH_LONG);
-                        flag = true;
-                    } else {
-                        results.add(q.getResponse());
-                    }
+                    results.add(q.getResponse());
                 }
-                if (!flag) {
-                    mDatabase.child("events").child(questionnaireTitle).child("users").child(mAuth.getUid()).setValue(results);
-                    Intent intent = new Intent(QuestionnaireActivity.this,
-                            RegisterUserPopUpActivity.class);
-                    startActivity(intent);
-                }
+                mDatabase.child("events").child(eventId).child("users").child(mAuth.getUid()).setValue(results);
+                Intent intent = new Intent(QuestionnaireActivity.this,
+                        RegisterUserPopUpActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -82,7 +75,12 @@ public class QuestionnaireActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot d : dataSnapshot.getChildren()) {
-                    adapter.questions.add(new Question(d.child("content").getValue().toString(), ""));
+                    ArrayList<Response> r = new ArrayList<>();
+                    for (DataSnapshot child : d.child("possible_responses").getChildren()) {
+                         r.add(new Response(child.getKey(), child.getValue().toString()));
+                    }
+                    Question q = new Question(d.child("content").getValue().toString(), "", r);
+                    adapter.questions.add(q);
                 }
                 rvQuestions.setAdapter(adapter);
                 rvQuestions.setLayoutManager(new LinearLayoutManager(QuestionnaireActivity.this));
