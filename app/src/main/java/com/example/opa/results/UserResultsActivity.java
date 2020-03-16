@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -90,8 +91,10 @@ public class UserResultsActivity extends AppCompatActivity {
                             try {
                                 String hex = "";
                                 hex = response.getString("color");
+                                Log.d("HEXSTRING", hex);
                                 hexCode.setText("Hex #" + hex);
                                 teamColor.setColorFilter(Color.parseColor("#" + hex));
+                                Log.d("TEST", "this should work?");
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -110,7 +113,6 @@ public class UserResultsActivity extends AppCompatActivity {
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            setContentView(R.layout.activity_user_results);
                         }
                     },
                             new Response.ErrorListener() {
